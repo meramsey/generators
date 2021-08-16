@@ -5,12 +5,14 @@
 import socket
 from genpickle import gen_pickle
 
-def sendto(source,addr):
-    s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+def sendto(source, addr):
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(addr)
     for pitem in gen_pickle(source):
         s.sendall(pitem)
     s.close()
+
 
 # Example use.   This requires you to run receivefrom.py
 # in a different process/window
@@ -21,5 +23,4 @@ if __name__ == '__main__':
 
     lines = follow(open("run/foo/access-log"))
     log = apache_log(lines)
-    sendto(log,("",15000))
-
+    sendto(log, ("", 15000))

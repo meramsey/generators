@@ -3,7 +3,9 @@
 # Takes a sequence of filenames as input and yields a sequence of file
 # objects that have been suitably open
 
-import gzip, bz2
+import bz2
+import gzip
+
 
 def gen_open(paths):
     for path in paths:
@@ -14,10 +16,12 @@ def gen_open(paths):
         else:
             yield open(path, 'rt')
 
+
 # Example use
 
 if __name__ == '__main__':
     from pathlib import Path
+
     lognames = Path('www').rglob('access-log*')
     logfiles = gen_open(lognames)
     for f in logfiles:

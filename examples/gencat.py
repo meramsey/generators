@@ -6,6 +6,7 @@ def gen_cat(sources):
     for src in sources:
         yield from src
 
+
 # Example use
 
 if __name__ == '__main__':
@@ -16,4 +17,4 @@ if __name__ == '__main__':
     logfiles = gen_open(lognames)
     loglines = gen_cat(logfiles)
     for line in loglines:
-        print(line,end='')
+        print(line, end='')

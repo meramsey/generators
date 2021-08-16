@@ -5,9 +5,9 @@
 from apachelog import apache_log
 from follow import follow
 
-logfile  = open("run/foo/access-log")
+logfile = open("run/foo/access-log")
 loglines = follow(logfile)
-log      = apache_log(loglines)
+log = apache_log(loglines)
 
 r404 = (r for r in log if r['status'] == 404)
 

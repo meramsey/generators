@@ -5,6 +5,7 @@
 import time
 import os
 
+
 def follow(thefile):
     thefile.seek(0, os.SEEK_END)
     while True:
@@ -13,6 +14,7 @@ def follow(thefile):
             time.sleep(0.1)
             continue
         yield line
+
 
 # Example use
 # Note : This example requires the use of an apache log simulator.
@@ -24,9 +26,7 @@ def follow(thefile):
 # 
 
 if __name__ == '__main__':
-    logfile = open("run/foo/access-log","r")
+    logfile = open("run/foo/access-log", "r")
     loglines = follow(logfile)
     for line in loglines:
         print(line, end='')
-
-    

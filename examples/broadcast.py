@@ -10,16 +10,16 @@ def broadcast(source, consumers):
 
 # Example
 if __name__ == '__main__':
-
     class Consumer(object):
-        def send(self,item):
+        def send(self, item):
             print(self, "got", item)
+
 
     c1 = Consumer()
     c2 = Consumer()
     c3 = Consumer()
 
     from follow import follow
-    lines = follow(open("run/foo/access-log"))
-    broadcast(lines,[c1,c2,c3])
 
+    lines = follow(open("run/foo/access-log"))
+    broadcast(lines, [c1, c2, c3])
